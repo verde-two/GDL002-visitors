@@ -14,7 +14,8 @@
   <form>
     <input id="inputEmail" type="email" name="user" placeholder="Ingresa email">
     <input id="inputPass" type="password" name="pass" placeholder="Ingresa contraseña">
-    <input type="submit" name="login" class="login login-submit" value="login">
+    <!-- <button id="btnLogin" name="login" class="login login-submit">Login</button> -->
+    <input id="btnLogin" type="submit" name="login" class="login login-submit" value="login">
   </form>
     
   <div class="login-help">
@@ -22,6 +23,24 @@
   </div>
 </div>
 
-  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCP4K8ODwby8Z6r98gY97QuCZWTJX0Jec4",
+    authDomain: "ihost-6a2e2.firebaseapp.com",
+    databaseURL: "https://ihost-6a2e2.firebaseio.com",
+    projectId: "ihost-6a2e2",
+    storageBucket: "ihost-6a2e2.appspot.com",
+    messagingSenderId: "1096102732256"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="src/index.js"></script>
+<script src="src/data.js"></script>
+<script src="src/main.js"></script>
 </body>
 </html>

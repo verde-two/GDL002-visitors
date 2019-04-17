@@ -8,20 +8,44 @@
     <title>Document</title>
 </head>
 <body>
-
   <div class="login-card">
-    <h1>Log-in</h1><br>
+    <h1>REGISTRAR</h1><br>
   <form>
-    <input id="inputEmail" type="email" name="user" placeholder="Ingresa email">
-    <input id="inputPass" type="password" name="pass" placeholder="Ingresa contraseña">
-    <button type="submit" name="login" class="login login-submit" value="login" onclick="signIn()">login</button>
+    <input id="logUpEmail" type="email" name="user" placeholder="Ingresa email">
+    <input id="logUpPass" type="password" name="pass" placeholder="Ingresa contraseña">
+    <!-- <button id="btnLogin" name="login" class="login login-submit">Login</button> -->
+    <input id="btnLogUp" type="submit" name="login" class="login login-submit" value="Registrar">
   </form>
     
   <div class="login-help">
     <a href="#">Register</a> • <a href="#">Forgot Password</a>
   </div>
+  </div>
+
+
+
+<div class="login-card">
+  <h1>INGRESAR</h1><br>
+<form>
+  <input id="logInEmail" type="email" name="user" placeholder="Ingresa email">
+  <input id="logInPass" type="password" name="pass" placeholder="Ingresa contraseña">
+  <!-- <button id="btnLogin" name="login" class="login login-submit">Login</button> -->
+  <input id="btnLogIn" type="submit" name="login" class="login login-submit" value="Acceder">
+</form>
+  
+<div class="login-help">
+  <h5>¿No tienes cuenta?</h5> <a href="#">Registrate</a>
+</div>
 </div>
 
-  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+<div id="container">
+</div>
+<button id="btnLogOut">cerrar sesión</button>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+<script src="src/firebase.js"></script>
+<script src="src/index.js"></script>
+<script src="src/data.js"></script>
+<script src="src/main.js"></script>
 </body>
 </html>

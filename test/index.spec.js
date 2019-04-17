@@ -17,16 +17,9 @@ import { signIn } from '../src/main';
 import {signIn} from '../src/index';
 
 describe('signIn', () => {
-<<<<<<< HEAD
-    it('deberia...', () => {
-        expect(typeof signIn).tobe('function');
-    });
-});
-=======
     it('deberia poder iniciar sesion con email y password', () => {
         return signIn("rocio.chavoya@gmail.com").then ((data)=>{
         expect(data).toBe('rocio.chavoya@gmail.com');
        }) 
     })
 });
->>>>>>> rocio/desarrollo

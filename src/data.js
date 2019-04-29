@@ -7,10 +7,10 @@
     // ...
 //  });
 
-  signIn(() => {
-      console.log(diste un clip);
+//  signIn(() => {
+//    console.log(diste un clip);
       
-  });
+//  });
 
 
 // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {

@@ -101,3 +101,27 @@ document.getElementById('btnLogOut').addEventListener('click', (event) => {
   event.preventDefault();
   logOut();
 });
+
+
+
+// Initialize Cloud Firestore 
+const db = firebase.firestore();
+
+const addVisitores = () => {
+  //Agregar visitantes
+  db.collection("visitors").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+  });
+};
+document.getElementById('boton').addEventListener('click', (event) => {
+  event.preventDefault();
+  addVisitores();
+});

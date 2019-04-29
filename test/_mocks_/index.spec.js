@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-//import { signIn } from '../src/index.js';
-=======
 import { signIn } from '../src/main';
->>>>>>> rocio/desarrollo
 
 //const firebase
 

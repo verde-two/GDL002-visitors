@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        
+            <section class="container">
+        
+                <input type="text" id="name" placeholder="Nombre" autofocus="autofocus">
+                <input type="text" id="firstName" placeholder="Apellido">
+                <input type="text" id="email" placeholder="Ingresa tu correo electronico" required="required">
+                <input type="date" id="date">
+                <input type="text" id="stay" placeholder="Tiempo estimado de visita">
+              
+                <canvas id="snapshot"></canvas>
+        
+                <form>
+                    <select id="mySelect" onchange="myFunction()">
+                        <option> ¿A quien visitas? </option>
+                        <option>Laboratoria</option>
+                        <option>Plaza Sania</option>
+                    </select>
+                </form>
+        
+                <p id="demo"></p>
+                <button id= "boton" onclick="guardar()" title="Almacenar en Database"> Registrarme </button>
+            </section>
+        
+            <section id="foto">
+        
+                <video id="player" controls autoplay></video>
+        
+        
+            </section>
+            <button id="whisky" title="Foto de registro"> Tomar Foto 😬 </button>
+        
+</body>
+</html>

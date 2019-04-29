@@ -73,11 +73,7 @@ document.getElementById('btnLogUp').addEventListener('click', (event) => {
   signUp();
 });
 
-// const showScreen = () => {
-//   document.getElementById("screenLogin").style.display = "none";
-//   document.getElementById("container").style.display = "block";
-//   document.getElementById("screenLogUp").style.display = "none";
-// }
+
 
 
 // document.getElementById("btnLogIn").addEventListener("click",showScreen);
@@ -88,7 +84,7 @@ const observerFb = () => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log("logeado");
-      wallPaper();
+      wallPaper(user);
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
@@ -111,16 +107,22 @@ const observerFb = () => {
 };
 observerFb();
 
-const wallPaper = () => {
+const wallPaper = (user) => {
  var user = user;
  const container =  document.getElementById("container");
- if (user){
+ if (user.emailVerified){
   container.innerHTML = `
   <h3>HOLA</h3>
-  <button id="btnLogOut">cerrar sesión</button>
+  <ul class="menu">
+  <li title="Registros"><button>Registros</button></li>
+  <li title="Estadisticas"><button id="createPost">Estadisticas</button></li>
+  <li title="Kiosko"><button><a href="kiosko.html">Kiosko</a></button></li>
+  <li title="LogOut"><button class="navbar-item" id="btnLogOut">Cerrar Sesión</button></li>
+</ul>
   `
 document.getElementById('btnLogOut').addEventListener('click', (event) => {
   event.preventDefault();
+  showScreen();
   logOut();
 });
  };
@@ -137,6 +139,11 @@ console.log("saliendo.....");
 })
 };
 
+const showScreen = () => {
+  document.getElementById("screenLogin").style.display = "none";
+  document.getElementById("container").style.display = "block";
+  document.getElementById("screenLogUp").style.display = "none";
+}
 
 const checkEmail = () => {
   var user = firebase.auth().currentUser;

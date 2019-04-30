@@ -174,3 +174,32 @@ const checkEmail = () => {
 // module.exports = {
 // signIn
 // };
+// document.getElementById('btnLogOut').addEventListener('click', logOut);
+document.getElementById('btnLogOut').addEventListener('click', (event) => {
+  event.preventDefault();
+  logOut();
+});
+
+
+
+// Initialize Cloud Firestore 
+const db = firebase.firestore();
+
+const addCoworking = (nombre,email,giro) => {
+  //Agregar coworking
+  db.collection("coworking").add({
+    nombre: nombre,
+    email: email,
+    giro: giro
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+  });
+};
+
+window.main = {
+  addCoworking
+};

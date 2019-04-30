@@ -107,3 +107,23 @@ body {
   text-align: center;
   font-size: 12px;
 }
+
+/*style select*/
+.entryCoworking{
+  box-sizing: content-box;
+  width: 100%;
+  float: right;
+}
+#selectTurn, #turn{
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  width: 21.25rem;
+  height: 2.5rem;
+  background-color: #323131;
+  border: 0;
+  border-radius: 0.625rem;
+  padding-left: 1.25rem;
+  margin: 15px 15px 20px 15px;
+}
+/**/

@@ -188,7 +188,7 @@ const db = firebase.firestore();
 
 window.main = {
   addCoworking: (nombre, email, giro) => {
-    console.log('estoy funcionando')
+    console.log('estoy')
     //Agregar coworking
     db.collection("coworking").add({
         nombre: nombre,

@@ -1,6 +1,11 @@
-// document.getElementById("screenLogUp").style.display = "none";
+document.getElementById("screenLogUp").style.display = "none";
 
-// document.getElementById("container").style.display = "none";
+
+
+const hiddenLog = () => {
+  document.getElementById("screenLogin").style.display = "none";
+  document.getElementById("screenLogUp").style.display = "none";
+}
 
 const signIn = () => {
     let email = document.getElementById("logInEmail").value;
@@ -25,13 +30,10 @@ const signIn = () => {
 document.getElementById('btnLogIn').addEventListener('click', (event) => {
   event.preventDefault();
   signIn();
+  hiddenLog();
 }); 
 
-// const hidden = () => {
-//   document.getElementById("screenLogin").style.display = "none";
-//   document.getElementById("container").style.display = "none";
-//   document.getElementById("screenLogUp").style.display = "block";
-// }
+
 
 
 // document.getElementById("btnScreenLogUp").addEventListener("click",hidden);
@@ -67,6 +69,11 @@ const signUp  = () => {
 };
 
 //document.getElementById('btnLogUp').addEventListener('click', signUp);
+const hiddenLogIn = () => {
+  document.getElementById("screenLogin").style.display = "none";
+  document.getElementById("screenLogUp").style.display = "block";
+}
+document.getElementById("btnScreenLogUp").addEventListener("click", hiddenLogIn)
 
 document.getElementById('btnLogUp').addEventListener('click', (event) => {
   event.preventDefault();
@@ -127,6 +134,9 @@ document.getElementById('btnLogOut').addEventListener('click', (event) => {
 });
  };
 };
+function Refresh() {
+  location.reload();
+}
 
 const logOut = () => {
 firebase.auth().signOut()
@@ -137,7 +147,9 @@ console.log("saliendo.....");
 .catch(function(error){
   console.log("error")
 })
+Refresh();
 };
+
 
 const showScreen = () => {
   document.getElementById("screenLogin").style.display = "none";

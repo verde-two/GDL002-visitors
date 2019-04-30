@@ -8,22 +8,22 @@ const hiddenLog = () => {
 }
 
 const signIn = () => {
-    let email = document.getElementById("logInEmail").value;
-    let password = document.getElementById("logInPass").value;
-    
-    console.log(email);
-    console.log(password);
-    
-    
-    
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
-      // ...
-    });
+  let email = document.getElementById("logInEmail").value;
+  let password = document.getElementById("logInPass").value;
+
+  console.log(email);
+  console.log(password);
+
+
+
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+    // ...
+  });
 };
 
 // document.getElementById('btnLogIn').addEventListener('click', signIn);
@@ -31,7 +31,7 @@ document.getElementById('btnLogIn').addEventListener('click', (event) => {
   event.preventDefault();
   signIn();
   hiddenLog();
-}); 
+});
 
 
 
@@ -41,30 +41,30 @@ document.getElementById('btnLogIn').addEventListener('click', (event) => {
 
 
 
-const signUp  = () => {
+const signUp = () => {
   let email = document.getElementById("logUpEmail").value;
   let password = document.getElementById("logUpPass").value;
-  
+
   console.log(email);
   console.log(password);
-  
-  
-  
+
+
+
   firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then(function(){
-    checkEmail()
-  })
-  
-  .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
-    
-    
-    // ...
-  });
+    .then(function () {
+      checkEmail()
+    })
+
+    .catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+
+
+      // ...
+    });
 
 };
 
@@ -88,7 +88,7 @@ document.getElementById('btnLogUp').addEventListener('click', (event) => {
 
 
 const observerFb = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log("logeado");
       wallPaper(user);
@@ -100,14 +100,14 @@ const observerFb = () => {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-      
+
       console.log(user.emailVerified);
-      
+
       // ...
     } else {
       // User is signed out.
       console.log("no logeado");
-      
+
       // ...
     }
   });
@@ -115,10 +115,10 @@ const observerFb = () => {
 observerFb();
 
 const wallPaper = (user) => {
- var user = user;
- const container =  document.getElementById("container");
- if (user.emailVerified){
-  container.innerHTML = `
+  var user = user;
+  const container = document.getElementById("container");
+  if (user.emailVerified) {
+    container.innerHTML = `
   <h3>HOLA</h3>
   <ul class="menu">
   <li title="Registros"><button>Registros</button></li>
@@ -127,27 +127,28 @@ const wallPaper = (user) => {
   <li title="LogOut"><button class="navbar-item" id="btnLogOut">Cerrar Sesión</button></li>
 </ul>
   `
-document.getElementById('btnLogOut').addEventListener('click', (event) => {
-  event.preventDefault();
-  showScreen();
-  logOut();
-});
- };
+    document.getElementById('btnLogOut').addEventListener('click', (event) => {
+      event.preventDefault();
+      showScreen();
+      logOut();
+    });
+  };
 };
+
 function Refresh() {
   location.reload();
 }
 
 const logOut = () => {
-firebase.auth().signOut()
-.then(function(){
-console.log("saliendo.....");
+  firebase.auth().signOut()
+    .then(function () {
+      console.log("saliendo.....");
 
-})
-.catch(function(error){
-  console.log("error")
-})
-Refresh();
+    })
+    .catch(function (error) {
+      console.log("error")
+    })
+  Refresh();
 };
 
 
@@ -160,13 +161,13 @@ const showScreen = () => {
 const checkEmail = () => {
   var user = firebase.auth().currentUser;
 
-  user.sendEmailVerification().then(function() {
+  user.sendEmailVerification().then(function () {
     // Email sent.
     console.log("enviando correo...");
-  }).catch(function(error) {
+  }).catch(function (error) {
     // An error happened.
     console.log("error");
-    
+
   });
 }
 
@@ -175,31 +176,32 @@ const checkEmail = () => {
 // signIn
 // };
 // document.getElementById('btnLogOut').addEventListener('click', logOut);
-document.getElementById('btnLogOut').addEventListener('click', (event) => {
-  event.preventDefault();
-  logOut();
-});
+// document.getElementById('btnLogOut').addEventListener('click', (event) => {
+//   event.preventDefault();
+//   logOut();
+// });
 
 
 
 // Initialize Cloud Firestore 
 const db = firebase.firestore();
 
-const addCoworking = (nombre,email,giro) => {
-  //Agregar coworking
-  db.collection("coworking").add({
-    nombre: nombre,
-    email: email,
-    giro: giro
-  })
-  .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-    console.error("Error adding document: ", error);
-  });
-};
-
 window.main = {
-  addCoworking
-};
+  addCoworking: (nombre, email, giro) => {
+    console.log('estoy funcionando')
+    //Agregar coworking
+    db.collection("coworking").add({
+        nombre: nombre,
+        email: email,
+        giro: giro
+      })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
+  }
+}
+
+// module.exports = addCoworking

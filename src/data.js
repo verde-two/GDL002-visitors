@@ -1,3 +1,6 @@
+// const addCoworking1 = require("./main")
+
+
 //import { signIn } from ".";
 
 //firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -18,7 +21,8 @@ const saveName = () => {
     let emailCoworking = document.getElementById("email").value;//Guardando valor de email
     let giro = document.getElementById("turn").value;
     console.log(nombreCoworking,emailCoworking,giro);
-    main.addCoworking(nombreCoworking,emailCoworking,giro);
+    window.main.addCoworking(nombreCoworking,emailCoworking,giro);
+    
     
 };
 document.getElementById("boton").addEventListener("click", saveName);

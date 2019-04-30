@@ -107,12 +107,12 @@ document.getElementById('btnLogOut').addEventListener('click', (event) => {
 // Initialize Cloud Firestore 
 const db = firebase.firestore();
 
-const addVisitores = () => {
-  //Agregar visitantes
-  db.collection("visitors").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
+const addCoworking = (nombre,email,giro) => {
+  //Agregar coworking
+  db.collection("coworking").add({
+    nombre: nombre,
+    email: email,
+    giro: giro
   })
   .then(function(docRef) {
     console.log("Document written with ID: ", docRef.id);
@@ -121,7 +121,7 @@ const addVisitores = () => {
     console.error("Error adding document: ", error);
   });
 };
-document.getElementById('boton').addEventListener('click', (event) => {
-  event.preventDefault();
-  addVisitores();
-});
+
+window.main = {
+  addCoworking
+};

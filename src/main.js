@@ -187,13 +187,13 @@ const checkEmail = () => {
 const db = firebase.firestore();
 
 window.main = {
-  addCoworking: (nombre, email, giro) => {
+  addCoworking: (nombre, email, occupation) => {
     console.log('estoy')
     //Agregar coworking
     db.collection("coworking").add({
         nombre: nombre,
         email: email,
-        giro: giro
+        turn: occupation
       })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -202,6 +202,28 @@ window.main = {
         console.error("Error adding document: ", error);
       });
   }
-}
+},
+  //showCoworking:() => {
+    // Mostrar coworking en la interfaz
+  //userCoworking: () => {
+  document.getElementById("dataCoworking");
 
-// module.exports = addCoworking
+    db.collection("coworking").onSnapshot((querySnapshot) => {
+      dataCoworking.innerHTML = " " ;
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        dataCoworking.innerHTML += `
+        <tr>
+          <th scope="row">1</th>
+          <td>${doc.data().nombre}</td>
+          <td>${doc.data().email}</td>
+          <td>${doc.data().occupation}/td>
+        </tr>
+        `
+       // console.log(showCoworking);
+      });
+    });
+    
+  //}
+//};
+  

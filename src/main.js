@@ -1,11 +1,11 @@
-document.getElementById("screenLogUp").style.display = "none";
+// document.getElementById("screenLogUp").style.display = "none";
 
 
 
-const hiddenLog = () => {
-  document.getElementById("screenLogin").style.display = "none";
-  document.getElementById("screenLogUp").style.display = "none";
-}
+// const hiddenLog = () => {
+//   document.getElementById("screenLogin").style.display = "none";
+//   document.getElementById("screenLogUp").style.display = "none";
+// }
 
 const signIn = () => {
   let email = document.getElementById("logInEmail").value;
@@ -30,7 +30,7 @@ const signIn = () => {
 document.getElementById('btnLogIn').addEventListener('click', (event) => {
   event.preventDefault();
   signIn();
-  hiddenLog();
+  // hiddenLog();
 });
 
 
@@ -69,11 +69,11 @@ const signUp = () => {
 };
 
 //document.getElementById('btnLogUp').addEventListener('click', signUp);
-const hiddenLogIn = () => {
-  document.getElementById("screenLogin").style.display = "none";
-  document.getElementById("screenLogUp").style.display = "block";
-}
-document.getElementById("btnScreenLogUp").addEventListener("click", hiddenLogIn)
+// const hiddenLogIn = () => {
+//   document.getElementById("screenLogin").style.display = "none";
+//   document.getElementById("screenLogUp").style.display = "block";
+// }
+// document.getElementById("btnScreenLogUp").addEventListener("click", hiddenLogIn)
 
 document.getElementById('btnLogUp').addEventListener('click', (event) => {
   event.preventDefault();
@@ -129,7 +129,7 @@ const wallPaper = (user) => {
   `
     document.getElementById('btnLogOut').addEventListener('click', (event) => {
       event.preventDefault();
-      showScreen();
+      // showScreen();
       logOut();
     });
   };
@@ -152,11 +152,11 @@ const logOut = () => {
 };
 
 
-const showScreen = () => {
-  document.getElementById("screenLogin").style.display = "none";
-  document.getElementById("container").style.display = "block";
-  document.getElementById("screenLogUp").style.display = "none";
-}
+// const showScreen = () => {
+//   document.getElementById("screenLogin").style.display = "none";
+//   document.getElementById("container").style.display = "block";
+//   document.getElementById("screenLogUp").style.display = "none";
+// }
 
 const checkEmail = () => {
   var user = firebase.auth().currentUser;

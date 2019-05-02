@@ -202,6 +202,41 @@ window.main = {
         console.error("Error adding document: ", error);
       });
   },
+
+  // Mostrar coworking en la interfaz
+  userCoworking: () => {
+    console.log('hola');
+    db.collection("coworking").onSnapshot((querySnapshot) => {
+      dataCoworking.innerHTML = " " ;
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data().occupation}`);
+        dataCoworking.innerHTML += `
+        <tr>
+          <th scope="row"></th>
+          <td>${doc.data().nombre}</td>
+          <td>${doc.data().email}</td>
+          <td>${doc.data().occupation}/td>
+          <td><button id="discard" type="submit" class="btn btn-lg btn-primary btn-block" onclick="removeCoworking('${doc.id}')" >Remove</td>
+          <td><button id="" class="btn btn-lg btn-primary btn-block" type="submit">Edit</td>
+
+        </tr>
+        `
+      });
+    });
+    
+  },
+
+
+  // Eliminar datos
+  removeCoworking : (id) => {
+    db.collection("coworking").doc("id").delete().then(function() {
+      console.log("Document successfully deleted!");
+     }).catch(function(error) {
+     console.error("Error removing document: ", error);
+    });
+  } ,
+
+  
   addVisitors : (name,lastName,email,host,time) => {
     console.log('estoy')
     //Agregar coworking
@@ -218,29 +253,42 @@ window.main = {
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
-  }
-};
-  //showCoworking:() => {
-    // Mostrar coworking en la interfaz
-  //userCoworking: () => {
-  document.getElementById("dataCoworking");
+  },
 
   // Mostrar coworking en la interfaz
-  userCoworking: () => {
-    db.collection("coworking").onSnapshot((querySnapshot) => {
-      dataCoworking.innerHTML = " " ;
+  userVisitors: () => {
+    console.log('hi');
+    db.collection("visitors").onSnapshot((querySnapshot) => {
+      dataVisitors.innerHTML = " " ;
       querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        dataCoworking.innerHTML += `
+        console.log(`${doc.id} => ${doc.data().occupation}`);
+        dataVisitors.innerHTML += `
         <tr>
-          <th scope="row">1</th>
+          <th scope="row"></th>
           <td>${doc.data().nombre}</td>
           <td>${doc.data().email}</td>
           <td>${doc.data().occupation}/td>
+          <td><button id="discard" type="submit" class="btn btn-lg btn-primary btn-block" onclick="removeCoworking('${doc.id}')" >Remove</td>
+          <td><button id="" class="btn btn-lg btn-primary btn-block" type="submit">Edit</td>
+
         </tr>
         `
       });
     });
     
-  }
-}
+  },
+
+
+  // Eliminar datos
+  removeCoworking : (id) => {
+    db.collection("visitors").doc("id").delete().then(function() {
+      console.log("Document successfully deleted!");
+     }).catch(function(error) {
+     console.error("Error removing document: ", error);
+    });
+  } ,
+
+
+};
+
+

@@ -201,8 +201,25 @@ window.main = {
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
+  },
+  addVisitors : (name,lastName,email,host,time) => {
+    console.log('estoy')
+    //Agregar coworking
+    db.collection("visitors").add({
+        name: name,
+        lastName : lastName,
+        email: email,
+        host: host,
+        time: time
+      })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
   }
-},
+};
   //showCoworking:() => {
     // Mostrar coworking en la interfaz
   //userCoworking: () => {

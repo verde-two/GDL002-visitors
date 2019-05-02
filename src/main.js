@@ -201,13 +201,10 @@ window.main = {
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
-  }
-},
-  //showCoworking:() => {
-    // Mostrar coworking en la interfaz
-  //userCoworking: () => {
-  document.getElementById("dataCoworking");
+  },
 
+  // Mostrar coworking en la interfaz
+  userCoworking: () => {
     db.collection("coworking").onSnapshot((querySnapshot) => {
       dataCoworking.innerHTML = " " ;
       querySnapshot.forEach((doc) => {
@@ -220,10 +217,8 @@ window.main = {
           <td>${doc.data().occupation}/td>
         </tr>
         `
-       // console.log(showCoworking);
       });
     });
     
-  //}
-//};
-  
+  }
+}

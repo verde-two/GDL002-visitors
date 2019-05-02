@@ -28,10 +28,10 @@ const saveName = () => {
 document.getElementById("boton").addEventListener("click", saveName);
   
 // Funcion que obtiene informacion de los coworking
-//const userData = () => {
- //  let data = document.getElementById("dataCoworking");//Guardando informacion del coworking en una variable
+const userData = () => {
+  let dataUser = document.getElementById("dataCoworking");//Guardando informacion del coworking en una variable
    //document.getElementById("dataCoworking").innerHTML = data;
-  // window.main.userCoworking();
-  // console.log(data);
-//}      
-//document.getElementById("dataCoworking").addEventListener(saveName , userData  );  
+   console.log(dataUser);
+   window.main.userCoworking(dataUser);
+}      
+document.getElementById("").addEventListener(" ", userData);  

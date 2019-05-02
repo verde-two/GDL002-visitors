@@ -26,6 +26,20 @@ const saveName = () => {
     
 };
 document.getElementById("boton").addEventListener("click", saveName);
+
+
+const saveDataVisitors = () => {
+  let nameVisitor = document.getElementById("inputFirst_name").value;//Guardando valor de nombre
+  let lastNameVisitor = document.getElementById("inputLast_name").value//Guardar valor de last Name
+  let emailVisitor = document.getElementById("input_Email").value;//Guardando valor de email
+  let hostVisitor = document.getElementById("mySelect").value;
+  let timeVisitor = document.getElementById("myTime").value;
+  console.log(nameVisitor,lastNameVisitor,emailVisitor,hostVisitor,timeVisitor);
+  window.main.addVisitors(nameVisitor,lastNameVisitor,emailVisitor,hostVisitor,timeVisitor);
+  
+  
+};
+document.getElementById("exampleModal3").addEventListener("click", saveDataVisitors);
   
 // Funcion que obtiene informacion de los coworking
 const userData = () => {
